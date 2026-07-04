@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wanderlens — A Travel Photography Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="eyebrow">Est. on the road</p>
+    <h1>Wanderlens</h1>
+    <p class="tagline">Four rolls of film, four corners of the earth.</p>
+  </header>
+
+  <nav class="dial" aria-label="Filter photos by category">
+    <button class="dial-btn active" data-filter="all">
+      <span class="dial-dot"></span>All
+    </button>
+    <button class="dial-btn" data-filter="mountains">
+      <span class="dial-dot"></span>Mountains
+    </button>
+    <button class="dial-btn" data-filter="ocean">
+      <span class="dial-dot"></span>Ocean
+    </button>
+    <button class="dial-btn" data-filter="forest">
+      <span class="dial-dot"></span>Forest
+    </button>
+    <button class="dial-btn" data-filter="desert">
+      <span class="dial-dot"></span>Desert
+    </button>
+  </nav>
+
+  <main class="gallery" id="gallery">
+    <!-- Cards are injected by script.js from the PHOTOS array -->
+  </main>
+
+  <footer class="site-footer">
+    <p>Click any frame to open it full size — use the arrows or your keyboard to browse the roll.</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+    <div class="lb-stage">
+      <img id="lbImage" src="" alt="">
+      <div class="lb-caption">
+        <span class="lb-index" id="lbIndex"></span>
+        <span class="lb-title" id="lbTitle"></span>
+      </div>
+    </div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
