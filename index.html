@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wanderlens — A Travel Photography App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-left">
+      <span class="logo-mark" aria-hidden="true">&#9686;</span>
+      <span class="logo-text">Wanderlens</span>
+    </div>
+
+    <nav class="nav-tabs" aria-label="Main navigation">
+      <button class="nav-tab active" data-view="gallery">Gallery</button>
+      <button class="nav-tab" data-view="discover">Discover</button>
+    </nav>
+
+    <div class="nav-search">
+      <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="navSearchInput" placeholder="Search your gallery…" aria-label="Search">
+      <button id="navSearchBtn" class="nav-search-btn" hidden>Search</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ---------------- Gallery view ---------------- -->
+    <section class="view active" id="view-gallery">
+      <div class="view-intro">
+        <p class="eyebrow">Your collection</p>
+        <h2>Gallery</h2>
+        <p class="view-sub">Four rolls of film, four corners of the earth — plus anything you've added.</p>
+      </div>
+
+      <nav class="dial" aria-label="Filter photos by category">
+        <button class="dial-btn active" data-filter="all"><span class="dial-dot"></span>All</button>
+        <button class="dial-btn" data-filter="mountains"><span class="dial-dot"></span>Mountains</button>
+        <button class="dial-btn" data-filter="ocean"><span class="dial-dot"></span>Ocean</button>
+        <button class="dial-btn" data-filter="forest"><span class="dial-dot"></span>Forest</button>
+        <button class="dial-btn" data-filter="desert"><span class="dial-dot"></span>Desert</button>
+        <button class="dial-btn" data-filter="favorites"><span class="dial-dot"></span>&#9825; Favorites</button>
+        <button class="dial-btn" data-filter="uploads"><span class="dial-dot"></span>Your Photos</button>
+      </nav>
+
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+        <p>Drag photos here, or <button type="button" id="browseBtn" class="link-btn">browse your device</button></p>
+        <p class="dropzone-hint">Saved in this browser only, under "Your Photos".</p>
+      </div>
+
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <!-- ---------------- Discover view ---------------- -->
+    <section class="view" id="view-discover">
+      <div class="view-intro">
+        <p class="eyebrow">Powered by Pexels</p>
+        <h2>Discover</h2>
+        <p class="view-sub">Search millions of free stock photos and add the ones you like straight into your gallery.</p>
+      </div>
+
+      <div id="discoverKeyNotice" class="key-notice" hidden>
+        No Pexels API key found. Open <code>config.js</code>, add your free key from
+        <a href="https://www.pexels.com/api/" target="_blank" rel="noopener">pexels.com/api</a>, then reload this page.
+      </div>
+
+      <div class="discover-grid" id="discoverResults">
+        <p class="empty-state">Search above to find photos.</p>
+      </div>
+
+      <button class="load-more-btn" id="loadMoreBtn" hidden>Load more results</button>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Click any frame to open it full size — use the arrows or your keyboard to browse the roll.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+    <div class="lb-stage">
+      <img id="lbImage" src="" alt="">
+      <div class="lb-caption">
+        <span class="lb-index" id="lbIndex"></span>
+        <span class="lb-title" id="lbTitle"></span>
+      </div>
+    </div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
